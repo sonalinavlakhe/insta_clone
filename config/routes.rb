@@ -4,8 +4,11 @@ Rails.application.routes.draw do
 
   get "/dashboard" => "accounts#index"
   get "profile/:username" => "accounts#profile", as: :profile
+  get "post/like/:post_id" => "likes#save_like", as: :like_post
+  post "follow/accounts" => "accounts#follow_account", as: :follow_account
 
   resources :posts, only: [:new, :create, :show]
+  resources :comments, only: [:create, :destroy]
   
   root to:"public#homepage"
 end
