@@ -5,10 +5,15 @@ class AccountsController < ApplicationController
   
   def index
     #user dashboard -post feed
-    @posts = Post.active
+
+    followers_ids = AccountFollower.where(follower_id: current_account.id).map(&:following_id)
+    followers_ids << current_account.id
+    @posts = Post.includes(:account).where(account_id: followers_ids).active
     @comment = Comment.new
+
     following_ids = AccountFollower.where(follower_id: current_account.id).map(&:following_id)
     following_ids << current_account.id
+
     @follower_suggestions = Account.where.not(id: following_ids)
   end
 

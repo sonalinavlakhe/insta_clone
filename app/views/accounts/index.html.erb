@@ -20,7 +20,7 @@
             <p><strong dd="post-<%=post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark" %></strong></p>
             <%= simple_format post.description %>
             <p class="text-muted"><%= time_ago_in_words post.created_at %> ago</p>
-            <%= render "posts/comments", post: post %>
+            <%= render "posts/comments", post: post, comments: Comment.includes(:account).where(post_id: post.id)%>
           </div>
           <div class="comment-box">
             <%= form_for @comment do |f| %>

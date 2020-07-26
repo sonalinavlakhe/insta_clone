@@ -39,10 +39,14 @@ gem 'carrierwave', '0.10.0'
 gem 'fog', '~> 1.37.0'
 
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'rubocop', path: '/Users/sonali.bhavsar/Desktop/rubocop'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
+  gem 'factory_bot_rails'
 end
 
 group :development do
