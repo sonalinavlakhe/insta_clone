@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="manifest" href="/manifest.json" />
 
     <title>Instagram Clone</title>
     <%= csrf_meta_tags %>
@@ -16,7 +17,7 @@
   <body>
       <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white static-top">
-      <div class="container">
+      <div class="container"> 
         <a class=" navbar-brand" href="<%= account_signed_in? ? dashboard_path: root_path %>">
           <i class ="fa fa-camera"></i> Instagram Clone
         </a>
